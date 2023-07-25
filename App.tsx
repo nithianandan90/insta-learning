@@ -5,11 +5,12 @@ import posts from './src/assets/data/post.json';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import CommentsScreen from './src/screens/CommentsScreen/CommentsScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
+import EditProfileScreen from './src/screens/EditProfileScreen';
 
 const App = () => {
   return (
     <View style={styles.app}>
-      <ProfileScreen />
+      <EditProfileScreen />
     </View>
   );
 };
