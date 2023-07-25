@@ -4,11 +4,12 @@ import FeedPost from './src/components/FeedPosts';
 import posts from './src/assets/data/post.json';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import CommentsScreen from './src/screens/CommentsScreen/CommentsScreen';
+import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 
 const App = () => {
   return (
     <View style={styles.app}>
-      <CommentsScreen />
+      <ProfileScreen />
     </View>
   );
 };
