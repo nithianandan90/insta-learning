@@ -1,10 +1,26 @@
 import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {useRoute, useNavigation} from '@react-navigation/native';
 import React from 'react';
 import user from '../../assets/data/user.json';
 import ProfileHeader from './ProfileHeader';
 import FeedGridView from '../../components/FeedGridView';
+import {
+  UserProfileNavigationProp,
+  UserProfileRouteProp,
+  MyProfileNavigationProp,
+  MyProfileRouteProp,
+} from '../../navigation/types';
 
 const ProfileScreen = () => {
+  const route = useRoute<UserProfileRouteProp | MyProfileRouteProp>();
+
+  const navigation = useNavigation<
+    UserProfileNavigationProp | MyProfileNavigationProp
+  >();
+  const userId = route.params?.userId;
+
+  navigation.setOptions({title: user.username});
+
   return <FeedGridView data={user.posts} ListHeaderComponent={ProfileHeader} />;
 };
 
