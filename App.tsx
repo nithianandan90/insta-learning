@@ -1,12 +1,11 @@
-// import {FlatList, ScrollView, View} from 'react-native';
 import {StyleSheet} from 'react-native';
-// import FeedPost from './src/components/FeedPosts';
-// import posts from './src/assets/data/post.json';
-// import HomeScreen from './src/screens/HomeScreen/HomeScreen';
-// import CommentsScreen from './src/screens/CommentsScreen/CommentsScreen';
-// import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
-// import EditProfileScreen from './src/screens/EditProfileScreen';
 import Navigation from './src/navigation';
+import {Amplify} from 'aws-amplify';
+import {withAuthenticator, AmplifyTheme} from 'aws-amplify-react-native';
+import config from './src/aws-exports';
+import colors from './src/theme/colors';
+
+Amplify.configure(config);
 
 const App = () => {
   return <Navigation />;
@@ -18,4 +17,61 @@ const styles = StyleSheet.create({
   },
 });
 
+const signUpConfig = {
+  hideAllDefaults: true,
+  signUpFields: [
+    {
+      label: 'Full name',
+      key: 'name',
+      required: true,
+      displayOrder: 1,
+      type: 'string',
+      placeholder: 'Full name',
+    },
+    {
+      label: 'Email',
+      key: 'email',
+      required: true,
+      displayOrder: 2,
+      type: 'string',
+      placeholder: 'Email',
+    },
+    {
+      label: 'Username',
+      key: 'preferred_username',
+      required: true,
+      displayOrder: 3,
+      type: 'string',
+      placeholder: 'Username/handle',
+    },
+    {
+      label: 'Password',
+      key: 'password',
+      required: true,
+      displayOrder: 4,
+      type: 'password',
+      placeholder: 'Password',
+    },
+  ],
+};
+
+const customTheme = {
+  ...AmplifyTheme,
+  button: {
+    ...AmplifyTheme.button,
+    backgroundColor: colors.primary,
+    borderRadius: 100,
+  },
+  buttonDisabled: {
+    ...AmplifyTheme.buttonDisabled,
+    backgroundColor: '#5c78ff',
+    borderRadius: 100,
+  },
+  sectionFooterLink: {
+    ...AmplifyTheme.sectionFooterLink,
+    color: colors.primary,
+  },
+};
+
+// export default withAuthenticator(App, {signUpConfig, theme: customTheme});
 export default App;

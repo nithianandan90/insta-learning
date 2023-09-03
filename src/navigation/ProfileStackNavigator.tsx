@@ -5,7 +5,7 @@ import logo from '../assets/images/logo.png';
 import BottomTabNavigator from './BottomTabNavigator';
 import {Image} from 'react-native';
 import EditProfileScreen from '../screens/EditProfileScreen/EditProfileScreen';
-import {ProfileStackNavigatorParamList} from './types';
+import {ProfileStackNavigatorParamList} from '../types/navigation';
 
 const Stack = createNativeStackNavigator<ProfileStackNavigatorParamList>();
 

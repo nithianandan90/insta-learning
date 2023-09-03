@@ -10,7 +10,7 @@ import ProfileStackNavigator from './ProfileStackNavigator';
 import {
   BottomTabNavigatorParamList,
   SearchTabNavigatorParamList,
-} from './types';
+} from '../types/navigation';
 import SearchTabNavigator from './SearchTabNavigator';
 
 const Tab = createBottomTabNavigator<SearchTabNavigatorParamList>();
